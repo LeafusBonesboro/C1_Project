@@ -16,6 +16,12 @@ position: relative;
   
 }
 
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
 .img{
   position: absolute;
   right: 0px;
@@ -48,6 +54,23 @@ position: relative;
  
 }
 
+.flex-container {
+  display: flex;
+  background-color: rgb(44, 96, 163);
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+}
+
+
+
+
 .footer {
   background-color: rgb(44, 96, 163);
   padding: 10px;
@@ -68,6 +91,27 @@ h3{
 
 
 }
+
+
+
+
+.animation {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+@keyframes example {
+  0%   {background-color: lightgreen;}
+  25%  {background-color: lightblue;}
+  50%  {background-color: lightgray;}
+  100% {background-color: lightpink;}
+}
+
+
+
 /*abtme{
   
   background-color: rgb(93, 178, 199);
