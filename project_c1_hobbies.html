@@ -8,6 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael's Webpage</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <link href="https://rawgit.com/shaneapen/Image-Preview-for-Links/master/image_preview_for_links.css" rel="stylesheet"> 
+  <!-- MiniPreview stuff here -->
+  <link href="./jquery.minipreview.css" rel="stylesheet">
+  <script src="./jquery.minipreview.js"></script>
+  <script type="text/javascript">
+    $(function() {
+                $('#p1 a').miniPreview({ prefetch: 'pageload' });
+                $('#p2 a').miniPreview({ prefetch: 'parenthover' });
+                $('#p3 a').miniPreview({ prefetch: 'none' });
+            });
+  </script> <script src="https://rawgit.com/shaneapen/Image-Preview-for-Links/master/image_preview_for_links.js"></script>
   
     
   
@@ -41,15 +55,21 @@
   <div class="img">
     <img src="media/southparkguy.webp" height=200px  alt="This is me in my natural habitat">
   </div>
-
-    <p>Here are some of the things I like to do:</p>
+    Here are some of the things I like to do:
   
   <ul>
-  <li>I like to play <a href="https://www.charlottechesscenter.org/" target="_blank"> Chess </a> </li>
-  <li>I like to play <a href="https://www.pathofexile.com/" > video games </a></li>
+  <li><p id="p1">I like to play Chess at my local <a href="https://www.charlottechesscenter.org/" target="_blank"> club. </a> See if you can solve the daily chess puzzle from Chess.com.</p></li>
+  <iframe style="width: 400px; height: 560px;" src="https://www.chess.com/daily_puzzle" frameborder="0"></iframe>
+  <li><p id="p1">I like to play <a href="https://www.pathofexile.com/" target="_blank"> video games </a></p></li>
   <li>I like to play <a href="https://en.wikipedia.org/wiki/Guitar" target="_blank"> Guitar </a></li>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br>  
 </ul>
+
+
+
+
+  
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>  
+
   
 
 
