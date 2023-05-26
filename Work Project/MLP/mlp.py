@@ -1,23 +1,41 @@
-from pulp import LpProblem, LpVariable, LpMinimize
+from mip import Model, xsum, BINARY
 
-# Create the LP problem
-model = LpProblem("TruckSchedulingProblem", LpMinimize)
+# Set the number of doors and trucks
+Nd = 3
+Nt = 5
 
-# Decision Variables
-X = LpVariable("X", lowBound=0, cat="Integer")
+# Set the operations begin time
+B = 0
 
-# Objective Function
-model += X
+# Create a model
+model = Model()
 
-# Constraints
-model += 2 * X >= 5
-model += 3 * X <= 10
+# Define the decision variables
+x = [[model.add_var(var_type=BINARY) for j in range(Nd)] for i in range(Nt)]
 
-# Solve the problem
-model.solve()
+# Add the constraint Aij ≥ B for all i and j
+for i in range(Nt):
+    for j in range(Nd):
+        model.add_constr(x[i][j] >= B)
+
+# Set the objective function (example)
+objective = xsum(x[i][j] for i in range(Nt) for j in range(Nd))
+
+# Set the objective sense (minimize or maximize)
+model.objective = objective
+
+# Solve the model
+model.optimize()
 
 # Print the optimal solution
-print("Optimal Solution:")
-print("X =", X.value())
+if model.status == 'OPTIMAL':
+    print("Optimal Solution:")
+    for i in range(Nt):
+        for j in range(Nd):
+            if x[i][j].x >= 0.99:  # Check if the variable is almost 1
+                print(f"Truck {i+1} assigned to Door {j+1}")
+else:
+    print("No optimal solution found.")
+
 
 
